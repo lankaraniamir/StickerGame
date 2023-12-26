@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bneid6hx5004g"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMainBody.gd" id="1_npijb"]
+[ext_resource type="PackedScene" uid="uid://ci0w3me2tcwvm" path="res://Scenes/sub_body.tscn" id="2_2olhb"]
+[ext_resource type="Texture2D" uid="uid://c4r8ugdqyxn0q" path="res://Art/SpriteSheets/sprite-128.png" id="2_l1phy"]
+[ext_resource type="PackedScene" uid="uid://bqqhi72dacjm0" path="res://Scenes/connection.tscn" id="3_js67u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rj18q"]
+radius = 62.1289
+
+[node name="MainBody" type="CharacterBody2D"]
+script = ExtResource("1_npijb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(4.97629, 4.97629)
+texture = ExtResource("2_l1phy")
+hframes = 43
+vframes = 43
+frame = 895
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color(0, 0.294118, 0.0588235, 1)
+scale = Vector2(4.6, 4.6)
+shape = SubResource("CircleShape2D_rj18q")
+
+[node name="Connections" type="Node2D" parent="."]
+
+[node name="Area2D" parent="Connections" instance=ExtResource("3_js67u")]
+position = Vector2(0, 300)
+
+[node name="SubBody" parent="Connections" instance=ExtResource("2_2olhb")]
+position = Vector2(-493, -432)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+exclude_parent = false
+hit_from_inside = true

@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://bneid6hx5004g"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMainBody.gd" id="1_npijb"]
+[ext_resource type="PackedScene" uid="uid://smb02t506uoy" path="res://Scenes/sub_body.tscn" id="2_2olhb"]
+[ext_resource type="Texture2D" uid="uid://c4r8ugdqyxn0q" path="res://Art/SpriteSheets/sprite-128.png" id="2_l1phy"]
+[ext_resource type="PackedScene" uid="uid://bqqhi72dacjm0" path="res://Scenes/connection.tscn" id="3_js67u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rj18q"]
+radius = 300.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3oxi6"]
+radius = 300.0
+
+[node name="MainBody" type="CharacterBody2D"]
+script = ExtResource("1_npijb")
+speed = null
+rotation_speed = null
+min_angle_change = null
+shoot_distance = null
+face_neutral = null
+face_wow = null
+face_plz = null
+insert_cursor_angle = null
+play_mode = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.745098, 0.929412, 0.235294, 1)
+rotation = -1.5708
+scale = Vector2(4.97629, 4.97629)
+texture = ExtResource("2_l1phy")
+hframes = 43
+vframes = 43
+frame = 895
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+self_modulate = Color(0, 0.294118, 0.0588235, 1)
+shape = SubResource("CircleShape2D_rj18q")
+
+[node name="SubBodies" type="Node2D" parent="."]
+
+[node name="SubBody" parent="SubBodies" instance=ExtResource("2_2olhb")]
+position = Vector2(-448, -400)
+
+[node name="Connections" type="Node2D" parent="."]
+
+[node name="Area2D" parent="Connections" instance=ExtResource("3_js67u")]
+position = Vector2(0, 300)
+
+[node name="CollisionDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetector"]
+shape = SubResource("CircleShape2D_3oxi6")
+
+[node name="InsertCursor" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0.952941, 0.298039, 0.392157, 1)
+rotation = -1.5708
+scale = Vector2(4.976, 4.976)
+texture = ExtResource("2_l1phy")
+hframes = 43
+vframes = 43
+frame = 551

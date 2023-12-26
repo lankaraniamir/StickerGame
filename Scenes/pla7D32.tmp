@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ovq350chxwg"]
+
+[ext_resource type="PackedScene" uid="uid://bneid6hx5004g" path="res://Scenes/main_body.tscn" id="1_hq7ql"]
+
+[node name="Player" type="Node2D"]
+scale = Vector2(0.0779892, 0.0741334)
+
+[node name="MainBody" parent="." instance=ExtResource("1_hq7ql")]
+speed = 300.0
+rotation_speed = 25.1327
+min_angle_change = 0.785398
+shoot_distance = 35
+face_neutral = 852
+face_wow = 1519
+face_plz = 895
+
+[node name="MainBody2" parent="." instance_placeholder="res://Scenes/main_body.tscn"]
+position = Vector2(25.6446, 1267.98)
+speed = 300.0
+rotation_speed = 25.1327
+min_angle_change = 0.785398
+shoot_distance = 35
+face_neutral = 852
+face_wow = 1519
+face_plz = 895

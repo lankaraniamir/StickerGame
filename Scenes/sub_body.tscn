@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://smb02t506uoy"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerSubBody.gd" id="1_fl8lm"]
+[ext_resource type="Texture2D" uid="uid://c4r8ugdqyxn0q" path="res://Art/SpriteSheets/sprite-128.png" id="2_lnlmw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxt5u"]
+radius = 300.0
+
+[node name="SubBody" type="Area2D"]
+script = ExtResource("1_fl8lm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(4.97629, 4.97629)
+texture = ExtResource("2_lnlmw")
+hframes = 43
+vframes = 43
+frame = 895
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color(0, 0.294118, 0.0588235, 1)
+shape = SubResource("CircleShape2D_lxt5u")
